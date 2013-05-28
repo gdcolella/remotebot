@@ -1,0 +1,22 @@
+# incremental data. DO NOT EDIT.
+# format is <lastModified> <length> <SHA-1> <path>
+# Encoding is UTF-8
+1369697137000 543 b4ccdf5777feface01db2875ca3db1070ad6f828 /home/greg/AndroidStudioProjects/RemoteBot/RemoteBot/build/classes/debug/com/gdcolella/remotebot/R$layout.class
+1369696401000 709 4ef13be07785744a2620130a9668a79e032f38ce /home/greg/AndroidStudioProjects/RemoteBot/RemoteBot/build/classes/debug/com/gdcolella/remotebot/SocketConnection$ConnectionInfo.class
+1369696400000 481 afc68e35e9697b8f35d98507853506d3bc3c4c57 /home/greg/AndroidStudioProjects/RemoteBot/RemoteBot/build/classes/debug/com/gdcolella/remotebot/Connection.class
+1369696401000 355 b359e62fdf1ec8a75449e90917eee747b21b8ced /home/greg/AndroidStudioProjects/RemoteBot/RemoteBot/build/classes/debug/com/gdcolella/remotebot/R$attr.class
+1369697137000 446 709cd373fd4325e273a6b2356a92a2236cc128a3 /home/greg/AndroidStudioProjects/RemoteBot/RemoteBot/build/classes/debug/com/gdcolella/remotebot/R$style.class
+1369696401000 422 24199099af1cfcdc9dbd8c7d0cd0f36bfde98682 /home/greg/AndroidStudioProjects/RemoteBot/RemoteBot/build/classes/debug/com/gdcolella/remotebot/R$drawable.class
+1369696401000 2705 1f235bbd11408ad9ec91a7100383cbbbe3a50026 /home/greg/AndroidStudioProjects/RemoteBot/RemoteBot/build/classes/debug/com/gdcolella/remotebot/SocketConnection.class
+1369696401000 476 d7e76f8cb4b5a1755b856446ef7619ad864e0d2b /home/greg/AndroidStudioProjects/RemoteBot/RemoteBot/build/classes/debug/com/gdcolella/remotebot/R$dimen.class
+1369697137000 2104 13b1ec44881712fc795bb06e34bf1b4fdfa7d0dc /home/greg/AndroidStudioProjects/RemoteBot/RemoteBot/build/classes/debug/com/gdcolella/remotebot/MainActivity.class
+1369582847000 355 4901df13805ae0d22b40446eeee65166d8deee1e /home/greg/AndroidStudioProjects/RemoteBot/RemoteBot/build/classes/debug/com/gdcolella/remotebot/BuildConfig.class
+1369697137000 470 ccec602b5f48f24eddda17ea4daa6303280e4e3e /home/greg/AndroidStudioProjects/RemoteBot/RemoteBot/build/classes/debug/com/gdcolella/remotebot/R$integer.class
+1369697137000 406 e0c8abe1fb001dc05c6fde4ca82ab8b0dc01bb26 /home/greg/AndroidStudioProjects/RemoteBot/RemoteBot/build/classes/debug/com/gdcolella/remotebot/R$menu.class
+1369697137000 679 35c181a45d98842d4662d04233255ebb252cfe18 /home/greg/AndroidStudioProjects/RemoteBot/RemoteBot/build/classes/debug/com/gdcolella/remotebot/R$id.class
+1369697137000 487 73a5390984df34893fa5df8574bba1628edf22ea /home/greg/AndroidStudioProjects/RemoteBot/RemoteBot/build/classes/debug/com/gdcolella/remotebot/R$string.class
+1369697137000 843 5c975f34153544f998b5ad5f6848e000128cbaa5 /home/greg/AndroidStudioProjects/RemoteBot/RemoteBot/build/classes/debug/com/gdcolella/remotebot/R.class
+1369697137000 1418 5b8a84df33e191accc5052469884624313ab896c /home/greg/AndroidStudioProjects/RemoteBot/RemoteBot/build/classes/debug/com/gdcolella/remotebot/MainActivity$ConnectFragment.class
+1369582564000 484258 bd6479f5dd592790607e0504e66e0f31c2b4d308 /home/greg/AndroidStudioProjects/RemoteBot/RemoteBot/libs/android-support-v4.jar
+1369696401000 555 39cedfad636f74d369bef8021c557848393ca5fb /home/greg/AndroidStudioProjects/RemoteBot/RemoteBot/build/classes/debug/com/gdcolella/remotebot/R$animator.class
+1369697137000 992 d8db379b1658d6e003ef82099f58667becdc6cff /home/greg/AndroidStudioProjects/RemoteBot/RemoteBot/build/classes/debug/com/gdcolella/remotebot/MainActivity$ControlFragment.class
