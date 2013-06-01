@@ -36,6 +36,8 @@ class JoystickView extends SurfaceView implements Runnable {
         drawingThread.start();
 
     }
+
+
 /*
     private void init(Context ctx, AttributeSet attrs){
 

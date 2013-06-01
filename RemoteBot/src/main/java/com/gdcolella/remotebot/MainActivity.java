@@ -3,6 +3,7 @@ package com.gdcolella.remotebot;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.content.Context;
+import android.content.pm.ActivityInfo;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -42,14 +43,16 @@ public class MainActivity extends Activity implements FragmentManager.OnBackStac
 
     }
 
-    private void showConnect(){
+    public void showConnect(){
   //      assert !showingConnect;
         showingConnect = true;
+
         getFragmentManager().popBackStack();
     }
-    private void showControl(){
+    public void showControl(){
   //     assert showingConnect;
         showingConnect = false;
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
         getFragmentManager().beginTransaction()
                 .setCustomAnimations(
                         R.animator.card_flip_right_in,R.animator.card_flip_right_out,
@@ -68,29 +71,6 @@ public class MainActivity extends Activity implements FragmentManager.OnBackStac
     @Override
     public void onBackStackChanged() {
        showingConnect = !(getFragmentManager().getBackStackEntryCount() > 0);
-    }
-
-    class ConnectFragment extends Fragment implements View.OnClickListener {
-
-        @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState ){
-            View toShow = inflater.inflate(com.gdcolella.remotebot.R.layout.fragment_connect,container,false);
-            toShow.findViewById(R.id.connectbutton).setOnClickListener(this);
-            return toShow;
-        }
-
-        @Override
-        public void onClick(View view) {
-            showControl();
-        }
-    }
-    class ControlFragment extends Fragment {
-
-        @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
-            return inflater.inflate(R.layout.fragment_control, container, false);
-        }
-
     }
 
 
