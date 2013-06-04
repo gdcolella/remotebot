@@ -19,6 +19,7 @@ import android.view.ViewGroup;
 
 public class MainActivity extends Activity implements FragmentManager.OnBackStackChangedListener {
     boolean showingConnect;
+    SocketConnection myConnection;
 
 
     @Override
@@ -41,6 +42,12 @@ public class MainActivity extends Activity implements FragmentManager.OnBackStac
 
 
 
+    }
+    public void setConnection(SocketConnection toSet){
+        myConnection = toSet;
+    }
+    public SocketConnection getConnection(){
+        return myConnection;
     }
 
     public void showConnect(){
