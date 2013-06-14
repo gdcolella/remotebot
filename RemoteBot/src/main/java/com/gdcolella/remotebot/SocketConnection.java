@@ -13,6 +13,15 @@ public class SocketConnection extends Connection {
     BufferedReader readStream;
     PrintWriter writeStream;
 
+    public boolean close(){
+        try {
+        mySocket.close();
+        return true;
+        } catch( IOException e){
+            e.printStackTrace();
+        }
+        return false;
+    }
 
     private SocketConnection(String ip, int port){
         info = new ConnectionInfo(ip,port);
@@ -54,7 +63,7 @@ public class SocketConnection extends Connection {
     }
 
 
-    class ConnectionInfo {
+    static class ConnectionInfo {
         public final String IP;
         public final int port;
         public ConnectionInfo(String ip, int port){

@@ -2,6 +2,7 @@ package com.gdcolella.remotebot;
 
 import android.app.Fragment;
 import android.content.Context;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -19,7 +20,7 @@ import java.net.UnknownHostException;
 public class ConnectFragment extends Fragment implements View.OnClickListener {
 
     EditText input;
-    final int PORTNO = 5969;
+    final int PORTNO = 7777;
 
     public ConnectFragment(){
 
@@ -34,19 +35,30 @@ public class ConnectFragment extends Fragment implements View.OnClickListener {
 
     @Override
     public void onClick(View view) {
-     MainActivity act = ((MainActivity)getActivity());
-     SocketConnection cnct = SocketConnection.prepareConnection(input.getText().toString(), PORTNO );
-
-    try {
-        cnct.connect();
-        act.showControl();
-    }catch(UnknownHostException e){
-        Toast.makeText(getActivity().getApplicationContext(), "Unknown Host", 50);
-    }catch( IOException e){
-        Log.e("remotebot",e.toString());
-        Toast.makeText(getActivity().getApplicationContext(), "Unknown Error", 50);
+       TryConnect taskAttempt = new TryConnect();
+       taskAttempt.execute(new SocketConnection.ConnectionInfo(input.getText().toString().trim(), PORTNO));
     }
 
+    class TryConnect extends AsyncTask<SocketConnection.ConnectionInfo, Void, Void> {
+        MainActivity act = ((MainActivity)getActivity());
 
+        @Override
+        protected Void doInBackground(SocketConnection.ConnectionInfo... connectionInfos) {
+            String connectIP = connectionInfos[0].IP;
+            int port = connectionInfos[0].port;
+            SocketConnection cnct = SocketConnection.prepareConnection(input.getText().toString(), PORTNO );
+
+            try {
+                cnct.connect();
+                act.myConnection = cnct;
+                act.showControl();
+            }catch(UnknownHostException e){
+                Toast.makeText(getActivity().getApplicationContext(), "Unknown Host", 50);
+            }catch( IOException e){
+                Log.e("remotebot",e.toString());
+                Toast.makeText(getActivity().getApplicationContext(), "Unknown Error", 50);
+            }
+            return null;
+        }
     }
 }

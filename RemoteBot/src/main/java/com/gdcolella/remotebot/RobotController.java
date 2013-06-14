@@ -8,4 +8,5 @@ public abstract class RobotController {
     public abstract void setMotorPower(double lmotor, double rmotor);
     public abstract void freezeMotors();
     public abstract void close();
+    public abstract boolean ready();
 }

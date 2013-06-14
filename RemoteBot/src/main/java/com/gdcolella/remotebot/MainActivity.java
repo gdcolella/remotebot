@@ -69,7 +69,7 @@ public class MainActivity extends Activity implements FragmentManager.OnBackStac
 
                 .addToBackStack(null)
 
-                .commit();
+                .commitAllowingStateLoss();
 
 
 

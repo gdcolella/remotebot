@@ -30,8 +30,8 @@ public final class R {
         public static final int container=0x7f0a0000;
         public static final int editText=0x7f0a0001;
         public static final int instructions=0x7f0a0002;
-        public static final int surfaceView=0x7f0a0005;
-        public static final int surfaceView2=0x7f0a0006;
+        public static final int joystick1=0x7f0a0005;
+        public static final int joystick2=0x7f0a0006;
         public static final int textView=0x7f0a0007;
     }
     public static final class integer {

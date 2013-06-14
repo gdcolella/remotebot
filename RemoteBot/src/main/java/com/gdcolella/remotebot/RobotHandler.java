@@ -45,7 +45,8 @@ public class RobotHandler {
     }
 
     private void execute(double turnPercentage, double powerPercentage){
-        myController.setMotorPower((powerPercentage*power + (turnPercentage*power)), (powerPercentage*power - (turnPercentage*power)));
+        if(myController.ready())
+            myController.setMotorPower((powerPercentage*power + (turnPercentage*power)), (powerPercentage*power - (turnPercentage*power)));
     }
 
 

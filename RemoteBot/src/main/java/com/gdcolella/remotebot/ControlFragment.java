@@ -11,7 +11,11 @@ import android.view.ViewGroup;
  */
 public class ControlFragment extends Fragment {
 
+    JoystickHandler controller;
     JoyView leftJoystick;
+    RobotHandler myRobot;
+    MainActivity myMain;
+
 
     public ControlFragment(){
 
@@ -19,9 +23,17 @@ public class ControlFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
 
+        View out = inflater.inflate(R.layout.fragment_control, container, false);
+        myMain = (MainActivity)getActivity();
+        myRobot = new RobotHandler(new EddieController(myMain.myConnection));
+        controller = new JoystickHandler(myRobot);
+        leftJoystick = ((JoyView)out.findViewById(R.id.joystick1));
 
+        leftJoystick.setJoystickListener(controller);
 
-        return inflater.inflate(R.layout.fragment_control, container, false);
+        return out;
     }
+
+
 
 }
