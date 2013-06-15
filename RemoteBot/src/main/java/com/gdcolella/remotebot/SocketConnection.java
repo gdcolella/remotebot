@@ -8,11 +8,22 @@ import java.net.UnknownHostException;
  * Created by greg on 5/27/13.
  */
 public class SocketConnection extends Connection {
+    public static final int DEFAULT_PORT = 7777;
     ConnectionInfo info;
     Socket mySocket;
     BufferedReader readStream;
     PrintWriter writeStream;
 
+    public boolean close(){
+        try {
+        writeLine("END");
+        mySocket.close();
+        return true;
+        } catch( IOException e){
+            e.printStackTrace();
+        }
+        return false;
+    }
 
     private SocketConnection(String ip, int port){
         info = new ConnectionInfo(ip,port);
@@ -54,7 +65,7 @@ public class SocketConnection extends Connection {
     }
 
 
-    class ConnectionInfo {
+    static class ConnectionInfo {
         public final String IP;
         public final int port;
         public ConnectionInfo(String ip, int port){

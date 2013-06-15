@@ -24,15 +24,14 @@ public final class R {
         public static final int ic_launcher=0x7f020000;
     }
     public static final class id {
-        public static final int action_settings=0x7f0a0008;
-        public static final int button=0x7f0a0003;
-        public static final int connectbutton=0x7f0a0004;
+        public static final int action_settings=0x7f0a0007;
+        public static final int connectbutton=0x7f0a0003;
         public static final int container=0x7f0a0000;
-        public static final int editText=0x7f0a0001;
-        public static final int instructions=0x7f0a0002;
-        public static final int surfaceView=0x7f0a0005;
-        public static final int surfaceView2=0x7f0a0006;
-        public static final int textView=0x7f0a0007;
+        public static final int editText=0x7f0a0002;
+        public static final int instructions=0x7f0a0001;
+        public static final int joystick1=0x7f0a0004;
+        public static final int joystick2=0x7f0a0005;
+        public static final int textView=0x7f0a0006;
     }
     public static final class integer {
         public static final int card_flip_time_full=0x7f060000;
@@ -41,8 +40,7 @@ public final class R {
     public static final class layout {
         public static final int activity_card_flip=0x7f030000;
         public static final int activity_connect=0x7f030001;
-        public static final int fragment_connect=0x7f030002;
-        public static final int fragment_control=0x7f030003;
+        public static final int activity_control=0x7f030002;
     }
     public static final class menu {
         public static final int connect=0x7f090000;
