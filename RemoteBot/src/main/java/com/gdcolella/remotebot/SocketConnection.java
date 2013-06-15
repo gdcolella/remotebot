@@ -8,6 +8,7 @@ import java.net.UnknownHostException;
  * Created by greg on 5/27/13.
  */
 public class SocketConnection extends Connection {
+    public static final int DEFAULT_PORT = 7777;
     ConnectionInfo info;
     Socket mySocket;
     BufferedReader readStream;
@@ -15,6 +16,7 @@ public class SocketConnection extends Connection {
 
     public boolean close(){
         try {
+        writeLine("END");
         mySocket.close();
         return true;
         } catch( IOException e){

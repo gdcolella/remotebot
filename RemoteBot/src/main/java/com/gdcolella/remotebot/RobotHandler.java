@@ -1,5 +1,7 @@
 package com.gdcolella.remotebot;
 
+import android.util.Log;
+
 /**
  * Created by Greg on 6/4/13.
  */
@@ -37,6 +39,7 @@ public class RobotHandler {
 
     public boolean shouldUpdate(){
         return (Math.abs(latestTurn-prevTurn) < TOLERANCE && Math.abs(latestPower - prevPower) < TOLERANCE);
+        //return true;
     }
 
     public void request(double turnPercentage, double powerPercentage){
@@ -45,19 +48,21 @@ public class RobotHandler {
     }
 
     private void execute(double turnPercentage, double powerPercentage){
+        Log.d("remotebot","Executing on: turn:"+turnPercentage+" pwr:"+powerPercentage);
         if(myController.ready())
             myController.setMotorPower((powerPercentage*power + (turnPercentage*power)), (powerPercentage*power - (turnPercentage*power)));
     }
 
 
     class SendThread implements Runnable {
-        volatile boolean shouldRun;
+        volatile boolean shouldRun = true;
 
         public void stop(){
-            shouldRun = true;
+            shouldRun = false;
         }
 
         public void run(){
+            Log.d("remotebot", "Started update sending thread..");
             while(shouldRun){
                 tryWait(50);
                 if(shouldUpdate()){

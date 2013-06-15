@@ -16,7 +16,8 @@ public class JoyView extends View implements View.OnTouchListener {
     Paint myPaint;
     JoystickListener report;
 
-    float centerx = getWidth()/2, centery = getHeight() /2, x = centerx,y = centery, rd;
+    float centerx = getWidth()/2, centery = getHeight() /2, x = centerx,y = centery, rd = getWidth()/2, radius = centerx;
+
 
     public JoyView(Context context){
         this(context,null);
@@ -32,19 +33,16 @@ public class JoyView extends View implements View.OnTouchListener {
         myPaint.setColor(Color.GREEN);
         myPaint.setStyle(Paint.Style.FILL_AND_STROKE);
         setOnTouchListener(this);
-
-        rd = getWidth()/8;
     }
 
     public void center(){
-        setXPos(centerx);
-        setYPos(centery);
+        setPos(centerx,centery);
         updateListener();
     }
     public void updateListener(){
 
         if(report != null){
-            report.onChange(x,y);
+            report.onChange(x - centerx, y - centery);
         }
     }
 
@@ -57,23 +55,33 @@ public class JoyView extends View implements View.OnTouchListener {
         canvas.drawCircle(x, y, getWidth()/8, myPaint);
 
     }
-
-    private void setXPos(float inX){
-        x = (inX<rd)?rd:(inX>(getWidth()-rd))?getWidth()-rd:inX;
-        //x = inX;
+    private double distance(double x1, double y1, double x2, double y2){
+        return Math.sqrt(((x1-x2)*(x1-x2)) + ((y1-y2)*(y1-y2)));
+    }
+    private boolean within(double inX, double inY){
+        return distance(centerx,centery,inX,inY) < radius;
     }
 
-    private void setYPos(float inY){
-        y = (inY<rd)?rd:(inY>(getHeight()-rd))?getHeight()-rd:inY;
-        //y = inY;
-    }
+    private void setPos(float inX, float inY){
+ /*       if(within(inX,inY)){
+            this.x = inX;
+            this.y = inY;
+        }
+        else {
+            double theta = Math.atan2(inY,inX);
 
+            x = (float)(Math.cos(theta) * radius);
+            y = (float)(Math.sin(theta) * radius);
+        }
+        */
+        this.x = inX;
+        this.y = inY;
+    }
 
     @Override
     public boolean onTouch(View view, MotionEvent motionEvent) {
-        Log.d("remotebot", "Touch received: "+motionEvent.getX()+" : "+motionEvent.getY()+" height: "+getHeight()+" width: "+getWidth()+" radius: "+rd);
-        setXPos(motionEvent.getX());
-        setYPos(motionEvent.getY());
+        //Log.d("remotebot", "Touch received: "+motionEvent.getX()+" : "+motionEvent.getY()+" height: "+getHeight()+" width: "+getWidth()+" radius: "+rd);
+        setPos(motionEvent.getX() ,motionEvent.getY());
 
         updateListener();
 

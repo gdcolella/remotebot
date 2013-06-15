@@ -1,5 +1,7 @@
 package com.gdcolella.remotebot;
 
+import android.util.Log;
+
 import java.io.IOException;
 import java.net.UnknownHostException;
 
@@ -23,8 +25,11 @@ public class EddieController extends RobotController {
 
     @Override
     public void setMotorPower(double lmotor, double rmotor) {
+
+        Log.d("remotebot", "Motor execution: " + lmotor + " " + rmotor);
+
         try {
-            myConnection.writeLine(MOTOR_PREFIX + " " + lmotor + " " + rmotor + "\n");
+            myConnection.writeLine(MOTOR_PREFIX + " 0 " + (int)lmotor + " 1 " + (int)rmotor);
         } catch (IOException e) {
             e.printStackTrace();
             throw new IllegalStateException();
