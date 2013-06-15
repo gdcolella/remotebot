@@ -42,7 +42,10 @@ public class JoyView extends View implements View.OnTouchListener {
     public void updateListener(){
 
         if(report != null){
-            report.onChange(x - centerx, y - centery);
+            float xPercent = (float)((x-centerx)/getWidth() - .5) * 2f;
+            float yPercent = (float)((y-centery)/getHeight() - .5) * 2f;
+            Log.d("remotebot","Joystick reporting: "+xPercent+ " "+yPercent);
+            report.onChange(xPercent, yPercent);
         }
     }
 
@@ -80,7 +83,7 @@ public class JoyView extends View implements View.OnTouchListener {
 
     @Override
     public boolean onTouch(View view, MotionEvent motionEvent) {
-        //Log.d("remotebot", "Touch received: "+motionEvent.getX()+" : "+motionEvent.getY()+" height: "+getHeight()+" width: "+getWidth()+" radius: "+rd);
+     //   Log.d("remotebot", "Touch received: "+motionEvent.getX()+" : "+motionEvent.getY()+" height: "+getHeight()+" width: "+getWidth()+" radius: "+rd);
         setPos(motionEvent.getX() ,motionEvent.getY());
 
         updateListener();

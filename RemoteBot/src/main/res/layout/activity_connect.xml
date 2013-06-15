@@ -22,6 +22,7 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/editText"
+                android:selectAllOnFocus="true"
                 android:text="IP Address"
                 android:layout_centerVertical="true"
                 android:layout_alignLeft="@+id/instructions"

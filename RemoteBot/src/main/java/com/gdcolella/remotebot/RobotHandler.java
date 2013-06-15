@@ -8,9 +8,9 @@ import android.util.Log;
 public class RobotHandler {
     RobotController myController;
 
-    final double TOLERANCE = .05;
+    final double TOLERANCE = .005;
 
-    volatile double power;
+    volatile double power = 100;
 
     volatile double latestTurn, latestPower , prevTurn, prevPower;
 
@@ -38,7 +38,7 @@ public class RobotHandler {
     }
 
     public boolean shouldUpdate(){
-        return (Math.abs(latestTurn-prevTurn) < TOLERANCE && Math.abs(latestPower - prevPower) < TOLERANCE);
+        return (Math.abs(latestTurn-prevTurn) > TOLERANCE || Math.abs(latestPower - prevPower) > TOLERANCE);
         //return true;
     }
 

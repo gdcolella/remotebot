@@ -53,6 +53,12 @@ public class DebugConnection extends Connection {
     }
 
     @Override
+    public boolean close() {
+        myInputThread.halt();
+        return true;
+    }
+
+    @Override
     public boolean writeLine(String toWrite) throws IOException {
         System.out.println(toWrite);
         return true;

@@ -12,8 +12,9 @@ public class JoystickHandler implements JoyView.JoystickListener {
     @Override
     public void onChange(float dx, float dy) {
 
-        Log.d("remotebot", "Handler request: " + dx + " " + dy);
-        myRobot.request(dy * dx, -1*(dy*dx));
+        Log.d("remotebot", "Handler request: " + dx + " " + -1 * dy);
+        //myRobot.request(dy * dx, -1*(dy*dx));
+        myRobot.request(dx,dy);
     }
 
     public JoystickHandler(RobotHandler in){
