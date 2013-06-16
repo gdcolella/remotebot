@@ -17,7 +17,7 @@ public class ControlActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_control);
 
-        myRobot = new RobotHandler(new EddieController(Data.defaultData().myConnection));
+        myRobot = new RobotHandler(new BotballController(Data.defaultData().myConnection));
         controller = new JoystickHandler(myRobot);
         leftJoystick = ((JoyView)findViewById(R.id.joystick1));
 

@@ -8,7 +8,8 @@ import android.util.Log;
 public class RobotHandler {
     RobotController myController;
 
-    final double TOLERANCE = .005;
+    final double TOLERANCE = .05;
+    final int WAITMS = 100;
 
     volatile double power = 100;
 
@@ -64,7 +65,7 @@ public class RobotHandler {
         public void run(){
             Log.d("remotebot", "Started update sending thread..");
             while(shouldRun){
-                tryWait(50);
+                tryWait(WAITMS);
                 if(shouldUpdate()){
                     execute(latestTurn,latestPower);
                     prevPower = latestPower;

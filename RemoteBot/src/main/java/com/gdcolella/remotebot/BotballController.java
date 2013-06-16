@@ -8,7 +8,7 @@ import java.net.UnknownHostException;
 /**
  * Created by greg on 6/11/13.
  */
-public class EddieController extends RobotController {
+public class BotballController extends RobotController {
     Connection myConnection;
 
     static final String MOTOR_PREFIX = "mmr ";
@@ -18,7 +18,7 @@ public class EddieController extends RobotController {
     static final int RMOTOR = 3;
 
 
-    public EddieController(Connection in) {
+    public BotballController(Connection in) {
         myConnection = in;
 
     }

@@ -30,8 +30,8 @@ public class ConnectActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        if(Data.defaultData().myConnection != null)
-            Data.defaultData().myConnection.close();
+        closeConnection();
+
         setContentView(R.layout.activity_connect);
 
         ipAddress = (EditText)findViewById(R.id.editText);
@@ -45,6 +45,20 @@ public class ConnectActivity extends Activity {
         });
 
         Log.d("remotebot", "initialized main view..");
+    }
+
+    @Override
+    public void onResume(){
+        super.onResume();
+
+        if(Data.defaultData() != null && Data.defaultData().myConnection != null)
+            Data.defaultData().myConnection.close();
+    }
+
+    public void closeConnection(){
+        if(Data.defaultData().myConnection != null)
+            Data.defaultData().myConnection.close();
+
     }
 
 
@@ -79,7 +93,7 @@ public class ConnectActivity extends Activity {
             if(result)
                 switchControl();
             else
-                Toast.makeText(getApplicationContext(),"Connection Issue..", 50);
+                Toast.makeText(ConnectActivity.this ,"Connection Issue..", 50);
         }
     }
 
